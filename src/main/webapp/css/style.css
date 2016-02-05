@@ -1,0 +1,102 @@
+body {
+	background-image: url("../images/Light-Wood-Background-Wallpaper.jpg");
+    background-attachment: fixed;
+}
+
+footer {
+    background-color: #222222;
+    color: whitesmoke;
+    padding: 25px;
+}
+
+.jumbotron {
+    background-image: url("../images/movie%20banner.jpg");
+    color: floralwhite;
+    text-shadow: 0 0 5px yellow;
+    text-shadow: 3px 3px 20px yellow;
+}
+
+.jumbotron h1 {
+    font-family: fantasy;
+    font-size: 9em;
+}
+
+.carousel{
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.carousel-inner img {
+    width: 100%;
+    min-height: 200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; 
+    }
+}
+
+.dropdown-menu {
+    background-color: #222222;
+    width: 200px;
+}
+
+.dropdown-menu li {
+    color: white;
+}
+
+.dropdown-menu li a {
+    color: white;
+}
+
+p a {
+    color: gray;
+    font-size: 1em;
+}
+
+#section-header {
+    color: white;
+    text-shadow: 0 0 12px blue;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+h3 {
+    color: white;
+    text-shadow: 0 0 10px red;
+}
+
+.section {
+    background-color: azure;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: justify;
+}
+
+.section img {
+    float: right;
+    width: 600px;
+    height: 900px;
+}
+
+h1#section-head {
+    color: darkcyan;
+    padding: 5px;
+    background-image: url(/images/img12.jpg);
+    height: 50px;
+    width: 480px;
+}
+
+h1#mn-head {
+    color: darkcyan;
+    padding: 5px;
+    font-family: 'Merriweather', serif;
+}
+
+.panel-body img {
+    width: 300px;
+    height: 180px;
+}
