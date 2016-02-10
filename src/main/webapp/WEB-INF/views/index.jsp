@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <style><%@include file="../resources/css/style.css"%></style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
@@ -27,15 +27,15 @@
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                    <img src="images/Latest-The-Force-Awakens-Trailer-Description.jpg" alt="Img">
+                    <img src="resources/images/Latest-The-Force-Awakens-Trailer-Description.jpg" alt="Img">
                     </div>
 
                     <div class="item">
-                      <img src="images/Xmen.jpg" alt="Image">     
+                      <img src="resources/images/Xmen.jpg" alt="Image">     
                     </div>
 
                     <div class="item">
-                      <img src="images/Fast-and-Furious-7-Full-Movie-Download1.jpg" alt="Image">
+                      <img src="resources/images/Fast-and-Furious-7-Full-Movie-Download1.jpg" alt="Image">
                     </div>
                   </div>
 
@@ -75,15 +75,15 @@
           <br>
           <div class="row">
             <div class="col-sm-3">
-                <a href="#">
-                  <img src="images/hollywood-sign1999_fnokt4ke2.jpg" class="img-responsive"
+                <a href="movielist">
+                  <img src="resources/images/hollywood-sign1999_fnokt4ke2.jpg" class="img-responsive"
                   style="width:100%" alt="Image">
                 </a>
             </div>
 
             <div class="col-sm-3"> 
-                <a href="#">
-                    <img src="images/bollywood-indian-film-industry-9345238.jpg"
+                <a href="movielist">
+                    <img src="resources/images/bollywood-indian-film-industry-9345238.jpg"
                     class="img-responsive" style="width:100%" alt="Image" />
                 </a>  
             </div>

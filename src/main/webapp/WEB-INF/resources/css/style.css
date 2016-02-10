@@ -1,5 +1,5 @@
 body {
-	background-image: url("../images/Light-Wood-Background-Wallpaper.jpg");
+	background-image: url("resources/images/Light-Wood-Background-Wallpaper.jpg");
     background-attachment: fixed;
 }
 
@@ -10,7 +10,7 @@ footer {
 }
 
 .jumbotron {
-    background-image: url("../images/movie%20banner.jpg");
+    background-image: url("resources/images/movie%20banner.jpg");
     color: floralwhite;
     text-shadow: 0 0 5px yellow;
     text-shadow: 3px 3px 20px yellow;
@@ -85,7 +85,7 @@ h3 {
 h1#section-head {
     color: darkcyan;
     padding: 5px;
-    background-image: url(/images/img12.jpg);
+    background-image: url(resources/images/img12.jpg);
     height: 50px;
     width: 480px;
 }

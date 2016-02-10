@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet"
               href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <style><%@include file="../resources/css/style.css"%></style>
         <link href='https://fonts.googleapis.com/css?family=Merriweather:700' rel='stylesheet'
               type='text/css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -15,7 +15,7 @@
     </head>
     <body>
     
-        <div id="page-head"></div>
+        <jsp:directive.include file="head.jsp" />
         
         <h1 class=""></h1>
         
@@ -33,23 +33,23 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="images/TheDarkKnight/1.jpg" alt="Image">
+                    <img src="resources/images/TheDarkKnight/1.jpg" alt="Image">
                 </div>
 
                 <div class="item">
-                    <img src="images/TheDarkKnight/2.jpg" alt="Image"> 
+                    <img src="resources/images/TheDarkKnight/2.jpg" alt="Image"> 
                 </div>
                 
                 <div class="item">
-                    <img src="images/TheDarkKnight/3.jpg" alt="Image">
+                    <img src="resources/images/TheDarkKnight/3.jpg" alt="Image">
                 </div>
                 
                 <div class="item">
-                    <img src="images/TheDarkKnight/4.jpg" alt="Image">
+                    <img src="resources/images/TheDarkKnight/4.jpg" alt="Image">
                 </div>
                 
                 <div class="item">
-                    <img src="images/TheDarkKnight/5.jpg" alt="Image">    
+                    <img src="resources/images/TheDarkKnight/5.jpg" alt="Image">    
                 </div>
             </div>
 

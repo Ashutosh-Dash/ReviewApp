@@ -12,12 +12,12 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.jsp">TMC</a>
+			<a class="navbar-brand" href="index">TMC</a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><a href="index.jsp">Home</a></li>
+				<li><a href="index">Home</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false"> Movies <span class="caret"></span>
@@ -25,14 +25,14 @@
 
 					<ul class="dropdown-menu">
 						<!-- Movies dropdown menu -->
-						<li><a href="movielist.jsp">Bollywood</a></li>
-						<li><a href="movielist.jsp">Hollwwood</a></li>
+						<li><a href="movielist">Bollywood</a></li>
+						<li><a href="movielist">Hollwwood</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#">Latest Releases</a></li>
+						<li><a href="movielist">Latest Releases</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#">Most Reviewed</a></li>
+						<li><a href="movielist">Most Reviewed</a></li>
 					</ul> <!-- End of dropdown menu --></li>
-				<li><a href="#">About us</a></li>
+				<li><a href="aboutus">About us</a></li>
 				<li><a href="#">Contact</a></li>
 			</ul>
 			<form class="navbar-form navbar-left" role="search">
@@ -71,10 +71,10 @@
 								<button class="btn btn-lg btn-primary btn-block" type="submit">
 									Login</button>
 							</li>
-							<li><a href="forgotPW.jsp">Forgot Password</a></li>
+							<li><a href="forgotPW">Forgot Password</a></li>
 						</form>
 					</ul>
-				<li><a href="registration.jsp"><span
+				<li><a href="registration"><span
 						class="glyphicon glyphicon-user"> </span> Join us </a></li>
 			</ul>
 		</div>

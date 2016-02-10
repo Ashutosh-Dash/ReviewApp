@@ -5,14 +5,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <style><%@include file="../resources/css/style.css"%></style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="js/inserthead.js"></script>
     </head>
     <body>
         
-        <div id="page-head"></div>
+        <jsp:directive.include file="head.jsp" />
         
         <div class="container.fluid">
             <div class="row">
@@ -20,7 +20,7 @@
                 <div class="col-sm-10 section">
                     <h1 id="section-head">Join us today</h1>
                     <hr />
-                    <img alt="test" src="images/11179463ori.jpg" />
+                    <img alt="Image" src="resources/images/11179463ori.jpg" />
                     <form class="form-horizontal">
                       <fieldset>
                           
