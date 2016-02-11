@@ -1,6 +1,6 @@
 package com.mindfire.intern.reviewapp.model;
 
-public class UserInformation {
+public class UserInformationModel {
 
 	private String userName;
 	private String firstName;

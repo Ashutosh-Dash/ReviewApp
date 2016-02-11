@@ -22,11 +22,11 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10 section">
-				<h1 id="section-head">Successful Registration</h1>
-				<br /> User Name: ${userInformation.userName}<br /> First Name:
-				${userInformation.firstName}<br /> Last Name:
-				${userInformation.lastName}<br /> E-mail Id:
-				${userInformation.emailId}<br />
+				<h1 id="section-head">Successful Registration</h1><br /> 
+				User Name: ${userInformationModel.userName}<br />
+				First Name: ${userInformationModel.firstName}<br /> 
+				Last Name: ${userInformationModel.lastName}<br /> 
+				E-mail Id: ${userInformationModel.emailId}<br />
 			</div>
 			<div class="col-sm-1"></div>
 		</div>

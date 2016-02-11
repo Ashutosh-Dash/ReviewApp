@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mindfire.intern.reviewapp.model.UserInformation;
+import com.mindfire.intern.reviewapp.model.UserInformationModel;
 
 @Controller
 @RequestMapping("/")
@@ -38,13 +38,13 @@ public class ReviewAppNavigationController {
 	
 	@RequestMapping(value = "registration" ,method = RequestMethod.GET)
 	public String beforeRegistration(ModelMap model) {
-		model.addAttribute("userInformation", new UserInformation());
+		model.addAttribute("userInformationModel", new UserInformationModel());
 		return "registration";
 		
 	}
 	
 	@RequestMapping(value = "registration" ,method = RequestMethod.POST)
-	public String afterRegistration(@ModelAttribute ("userInformation") UserInformation userInformation) {
+	public String afterRegistration(@ModelAttribute ("userInformationModel") UserInformationModel userInformation) {
 		return "registrationsuccess";
 		
 	}

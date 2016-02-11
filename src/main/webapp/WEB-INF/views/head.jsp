@@ -1,4 +1,4 @@
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <div class="jumbotron">
 	<div class="container text-center">
 		<h1>The Movie Club</h1>

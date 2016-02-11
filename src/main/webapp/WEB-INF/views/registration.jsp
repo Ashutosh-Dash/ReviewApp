@@ -21,7 +21,7 @@
                     <h1 id="section-head">Join us today</h1>
                     <hr />
                     <img alt="Image" src="resources/images/11179463ori.jpg" />
-                    <form:form commandName="userInformation" class="form-horizontal">
+                    <form:form commandName="userInformationModel" class="form-horizontal">
                       <fieldset>
                           
                         <div class="control-group">
