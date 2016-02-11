@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,14 +21,14 @@
                     <h1 id="section-head">Join us today</h1>
                     <hr />
                     <img alt="Image" src="resources/images/11179463ori.jpg" />
-                    <form class="form-horizontal">
+                    <form:form commandName="userInformation" class="form-horizontal">
                       <fieldset>
                           
                         <div class="control-group">
                           <label class="control-label" for="username">Username</label>
                           <div class="controls">
-                            <input type="text" id="username" name="username" placeholder=""
-                            class="input-xlarge">
+                            <form:input path="userName" id="username" name="username" placeholder=""
+                            class="input-xlarge" />
                             <p class="help-block">
                                 Username can contain any letters or numbers, without spaces
                             </p>
@@ -37,8 +38,8 @@
                         <div class="control-group">
                           <label class="control-label" for="username">First name</label>
                           <div class="controls">
-                            <input type="text" id="username" name="username" placeholder=""
-                            class="input-xlarge">
+                            <form:input path="firstName" id="username" name="firstname" placeholder=""
+                            class="input-xlarge" />
                             <p class="help-block">Enter you first name</p>
                           </div>
                         </div>
@@ -46,8 +47,8 @@
                         <div class="control-group">
                           <label class="control-label" for="username">Last name</label>
                           <div class="controls">
-                            <input type="text" id="username" name="username" placeholder=""
-                            class="input-xlarge">
+                            <form:input path="lastName" id="username" name="lastname" placeholder=""
+                            class="input-xlarge" />
                             <p class="help-block">Enter your last name</p>
                           </div>
                         </div>
@@ -55,8 +56,8 @@
                         <div class="control-group">
                           <label class="control-label" for="email">E-mail</label>
                           <div class="controls">
-                            <input type="text" id="email" name="email" placeholder=""
-                            class="input-xlarge">
+                            <form:input path="emailId" type="email" id="email" name="email" placeholder=""
+                            class="input-xlarge" />
                             <p class="help-block">Please provide your E-mail</p>
                           </div>
                         </div>
@@ -64,10 +65,10 @@
                         <div class="control-group">
                           <label class="control-label" for="password">Password</label>
                           <div class="controls">
-                            <input type="password" id="password" name="password"
-                                   placeholder="" class="input-xlarge">
+                            <form:password path="password" id="password" name="password"
+                                   placeholder="" class="input-xlarge" pattern=".{8,16}" />
                             <p class="help-block">
-                                Password should be at least 8 characters
+                                Password should be at least 8 characters and 16 characters at maximum
                             </p>
                           </div>
                         </div>
@@ -77,19 +78,19 @@
                               Retype Password (Confirm)
                           </label>
                           <div class="controls">
-                            <input type="password" id="password_confirm"
-                                name="password_confirm" placeholder="" class="input-xlarge">
+                            <input type="password" id="password_confirm" pattern=".{8,16}"
+                                name="password_confirm" placeholder="" class="input-xlarge" />
                             <p class="help-block">Please confirm password</p>
                           </div>
                         </div>
 
                         <div class="control-group">
                           <div class="controls">
-                            <button class="btn btn-success">Register</button>
+                            <button type="submit" class="btn btn-success">Register</button>
                           </div>
                         </div>
                       </fieldset>
-                    </form>
+                    </form:form>
                 </div>
                 <div class="col-sm-1"></div>
             </div>

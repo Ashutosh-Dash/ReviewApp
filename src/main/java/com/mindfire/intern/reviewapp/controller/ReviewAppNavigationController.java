@@ -2,8 +2,11 @@ package com.mindfire.intern.reviewapp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.mindfire.intern.reviewapp.model.UserInformation;
 
 @Controller
 @RequestMapping("/")
@@ -34,8 +37,15 @@ public class ReviewAppNavigationController {
 	}
 	
 	@RequestMapping(value = "registration" ,method = RequestMethod.GET)
-	public String registration(ModelMap model) {
+	public String beforeRegistration(ModelMap model) {
+		model.addAttribute("userInformation", new UserInformation());
 		return "registration";
+		
+	}
+	
+	@RequestMapping(value = "registration" ,method = RequestMethod.POST)
+	public String afterRegistration(@ModelAttribute ("userInformation") UserInformation userInformation) {
+		return "registrationsuccess";
 		
 	}
 	
