@@ -21,7 +21,7 @@
                     <h1 id="section-head">Join us today</h1>
                     <hr />
                     <img alt="Image" src="resources/images/11179463ori.jpg" />
-                    <form:form commandName="userInformationModel" class="form-horizontal">
+                    <form:form commandName="userDetailDto" class="form-horizontal">
                       <fieldset>
                           
                         <div class="control-group">
@@ -81,6 +81,28 @@
                             <input type="password" id="password_confirm" pattern=".{8,16}"
                                 name="password_confirm" placeholder="" class="input-xlarge" />
                             <p class="help-block">Please confirm password</p>
+                          </div>
+                        </div>
+                        
+                        <div class="control-group">
+                          <label class="control-label" for="list">Secret Question</label>
+                          <div class="controls">
+                            <form:select path="secretQuestion">
+                            	<form:option value="0" label="Select your secret question" />
+                            	<form:options items="${questionList}" />
+                            </form:select>
+                            <p class="help-block">
+                                Select a secret question to use in case you forget your password later
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div class="control-group">
+                          <label class="control-label" for="answer">Secret Answer</label>
+                          <div class="controls">
+                            <form:input path="secretAnswer" id="answer" name="answer" placeholder=""
+                            class="input-xlarge" />
+                            <p class="help-block">Enter answer to your secret question</p>
                           </div>
                         </div>
 

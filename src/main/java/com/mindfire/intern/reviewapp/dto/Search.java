@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mindfire.intern.reviewapp.model;
+package com.mindfire.intern.reviewapp.dto;
 
 /**
  * @author mindfire

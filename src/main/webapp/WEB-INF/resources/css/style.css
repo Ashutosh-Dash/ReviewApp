@@ -100,3 +100,10 @@ h1#mn-head {
     width: 300px;
     height: 180px;
 }
+
+#movieForm .form-control-feedback {
+    right: 15px;
+}
+#movieForm .selectContainer .form-control-feedback {
+    right: 25px;
+}
