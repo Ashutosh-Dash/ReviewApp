@@ -3,6 +3,7 @@
  */
 package com.mindfire.intern.reviewapp.controller;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -42,7 +43,7 @@ public class ReviewAppFormsController {
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-	    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+	    DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 	    sdf.setLenient(true);
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
 	}

@@ -24,13 +24,11 @@ public class MovieComponent {
 	
 	@Transactional
 	public List<Movie> getMovie(String movieTitle) {
-		List<Movie> movie = movieRepository.findByMovieTitleContainingIgnoreCase(movieTitle);
-		return movie;
+		return movieRepository.findByMovieTitleContainingIgnoreCase(movieTitle);
 	}
 	
 	public Movie getLastMovie(String movieTitle) {
-		Movie movie = movieRepository.findFirstByMovieTitleOrderByMovieIdDesc(movieTitle);
-		return movie;
+		return movieRepository.findFirstByMovieTitleOrderByMovieIdDesc(movieTitle);
 	}
 	
 	@Transactional

@@ -22,9 +22,7 @@ public class UserDetailComponent {
 	
 	@Transactional
 	public UserDetail getUserDetail(String userName) {
-		UserDetail userDetail = userDetailRepository.findByUserName(userName);
-		
-		return userDetail;
+		return userDetailRepository.findByUserName(userName);
 	}
 	
 	@Transactional

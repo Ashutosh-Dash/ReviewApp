@@ -1,5 +1,5 @@
 body {
-	background-image: url("resources/images/Light-Wood-Background-Wallpaper.jpg");
+	background-image: url(../images/Light-Wood-Background-Wallpaper.jpg);
     background-attachment: fixed;
 }
 
@@ -10,7 +10,7 @@ footer {
 }
 
 .jumbotron {
-    background-image: url("resources/images/movie%20banner.jpg");
+    background-image: url(../images/movie%20banner.jpg);
     color: floralwhite;
     text-shadow: 0 0 5px yellow;
     text-shadow: 3px 3px 20px yellow;

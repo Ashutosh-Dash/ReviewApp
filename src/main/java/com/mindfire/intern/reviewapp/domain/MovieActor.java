@@ -1,4 +1,4 @@
-/**
+/*
  * 
  */
 package com.mindfire.intern.reviewapp.domain;
