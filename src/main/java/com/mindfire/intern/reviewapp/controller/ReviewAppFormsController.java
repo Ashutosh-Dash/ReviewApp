@@ -5,6 +5,7 @@ package com.mindfire.intern.reviewapp.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.mindfire.intern.reviewapp.domain.Movie;
 import com.mindfire.intern.reviewapp.dto.LoginInfo;
 import com.mindfire.intern.reviewapp.dto.MovieDTO;
+import com.mindfire.intern.reviewapp.dto.MovieProductionDTO;
 import com.mindfire.intern.reviewapp.dto.Search;
 import com.mindfire.intern.reviewapp.dto.UserDetailDTO;
 import com.mindfire.intern.reviewapp.service.MovieService;
@@ -57,7 +59,7 @@ public class ReviewAppFormsController {
 	
 	@RequestMapping(value = "search" , method = RequestMethod.POST)
 	public String search(@ModelAttribute("search") Search search, ModelMap model) {
-		Movie movie = movieService.findByMovieTitle(search.getSearchItem());
+		List<Movie> movie = movieService.findByMovieTitle(search.getSearchItem());
 		System.out.println(movie);
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
@@ -77,9 +79,22 @@ public class ReviewAppFormsController {
 	public String addedNewMovie(@ModelAttribute("movieDto") MovieDTO movieDto,
 			ModelMap model) {
 		movieService.createMovie(movieDto);
+		Movie movie = movieService.getLastMovie(movieDto.getMovieTitle());
+		model.addAttribute("Id", movie.getMovieId());
+		model.addAttribute("movieProductionDto", new MovieProductionDTO());
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
-		return "addmoviesuccess";
+		return "addproductiondetail";
+		
+	}
+	
+	@RequestMapping(value = "addproductiondetail", method = RequestMethod.POST)
+	public String addedProductionDetail(
+			@ModelAttribute("movieProductionDto") MovieProductionDTO movieProdDto,
+			ModelMap model) {
+		model.addAttribute("search", new Search());
+		model.addAttribute("logininfo", new LoginInfo());
+		return "addgallery";
 		
 	}
 

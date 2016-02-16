@@ -3,6 +3,8 @@
  */
 package com.mindfire.intern.reviewapp.component;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,8 +23,13 @@ public class MovieComponent {
 	private MovieRepository movieRepository;
 	
 	@Transactional
-	public Movie getMovie(String movieTitle) {
-		Movie movie = movieRepository.findByMovieTitle(movieTitle);
+	public List<Movie> getMovie(String movieTitle) {
+		List<Movie> movie = movieRepository.findByMovieTitleContainingIgnoreCase(movieTitle);
+		return movie;
+	}
+	
+	public Movie getLastMovie(String movieTitle) {
+		Movie movie = movieRepository.findFirstByMovieTitleOrderByMovieIdDesc(movieTitle);
 		return movie;
 	}
 	

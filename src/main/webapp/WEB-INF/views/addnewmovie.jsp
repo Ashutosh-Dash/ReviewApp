@@ -50,7 +50,9 @@
 							<label class="control-label" for="releasedate">Movie Release Date</label>
 							<div class="controls">
 								<form:input path="releaseDate" placeholder="" class="input-xlarge" />
-								<p class="help-block">Enter the official movie release date</p>
+								<p class="help-block">
+								Enter the official movie release date (In format : mm/dd/yyyy)
+								</p>
 							</div>
 						</div>
 
@@ -82,7 +84,7 @@
 
 						<div class="control-group">
 							<div class="controls">
-								<button type="submit" class="btn btn-success">Add Movie</button>
+								<button type="submit" class="btn btn-success">Add Movie Details</button>
 							</div>
 						</div>
 					</fieldset>

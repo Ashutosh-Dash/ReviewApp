@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mindfire.intern.reviewapp.dto.LoginInfo;
 import com.mindfire.intern.reviewapp.dto.MovieDTO;
+import com.mindfire.intern.reviewapp.dto.MovieProductionDTO;
 import com.mindfire.intern.reviewapp.dto.Search;
 import com.mindfire.intern.reviewapp.dto.UserDetailDTO;
 
@@ -72,6 +73,15 @@ public class ReviewAppNavigationController {
 		model.addAttribute("logininfo", new LoginInfo());
 		model.addAttribute("movieDto", new MovieDTO());
 		return "addnewmovie";
+		
+	}
+	
+	@RequestMapping(value = "addproductiondetail", method = RequestMethod.GET)
+	public String addProductionDetail(ModelMap model) {
+		model.addAttribute("search", new Search());
+		model.addAttribute("logininfo", new LoginInfo());
+		model.addAttribute("movieProductionDto", new MovieProductionDTO());
+		return "addproductiondetail";
 		
 	}
 

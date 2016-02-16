@@ -21,7 +21,7 @@ public class UserDetailService {
 		return userDetailComponent.getUserDetail(userName);
 	}
 	
-	public void createUserDetail(UserDetailDTO userDetailDto) {
+	public UserDetail createUserDetail(UserDetailDTO userDetailDto) {
 		
 		UserDetail userDetail = new UserDetail();
 		userDetail.setUserName(userDetailDto.getUserName());
@@ -36,6 +36,7 @@ public class UserDetailService {
 		logger.info("User with username " + userDetailDto.getUserName()
 				+ " sucessfully created");
 		
+		return createdUserDetail;
 	}
 
 }

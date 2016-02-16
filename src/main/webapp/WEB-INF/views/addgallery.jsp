@@ -19,22 +19,12 @@
 
 	<jsp:directive.include file="head.jsp" />
 	
-	<div class="container.fluid">
-		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10 section">
-				<h1 id="section-head">Movie added success fully</h1><br /><br /><br />
-				Movie title : ${movieDto.movieTitle}<br />
-				Movie language : ${movieDto.movieLanguage}<br />
-				Release date : ${movieDto.releaseDate}<br />
-				Duration : ${movieDto.duration}<br />
-				Trailer Link : ${movieDto.trailerLink}<br />
-				Description : ${movieDto.description}<br /><br /><br />
-			</div>
-			<div class="col-sm-1"></div>
-		</div>
-	</div>
-
+	<p>${movieProdDto.movieId}</p>
+	<p>${movieProdDto.director}</p>
+	<p>${movieProdDto.producer}</p>
+	<p>${movieProdDto.studio}</p>
+	<p>${movieProdDto.budget}</p>
+	
 	<footer class="container-fluid text-center">
 		<p>Footer Text</p>
 	</footer>

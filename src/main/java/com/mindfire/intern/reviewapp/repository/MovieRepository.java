@@ -3,6 +3,8 @@
  */
 package com.mindfire.intern.reviewapp.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +17,7 @@ import com.mindfire.intern.reviewapp.domain.Movie;
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
 	
-	Movie findByMovieTitle(String movieTitle);
+	List<Movie> findByMovieTitleContainingIgnoreCase(String movieTitle);
+	Movie findFirstByMovieTitleOrderByMovieIdDesc(String movieTitle);
 
 }

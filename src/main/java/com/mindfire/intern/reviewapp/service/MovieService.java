@@ -3,6 +3,8 @@
  */
 package com.mindfire.intern.reviewapp.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +26,15 @@ public class MovieService {
 	@Autowired
 	private MovieComponent movieComponent;
 	
-	public Movie findByMovieTitle(String movieTitle) {
+	public List<Movie> findByMovieTitle(String movieTitle) {
 		return movieComponent.getMovie(movieTitle);
 	}
 	
-	public void createMovie(MovieDTO movieDto) {
+	public Movie getLastMovie(String movieTitle) {
+		return movieComponent.getLastMovie(movieTitle);
+	}
+	
+	public Movie createMovie(MovieDTO movieDto) {
 		Movie movie = new Movie();
 		movie.setMovieTitle(movieDto.getMovieTitle());
 		movie.setMovieLanguage(movieDto.getMovieLanguage());
@@ -40,6 +46,8 @@ public class MovieService {
 		Movie createdmovie = movieComponent.saveMovie(movie);
 		logger.info("Movie with name " + movieDto.getMovieTitle()
 				+ " successfully added");
+		
+		return createdmovie;
 	}
 
 }
