@@ -39,12 +39,16 @@
 						</div>
 
 						<div class="control-group">
-							<label class="control-label" for="movielanguage">Movie Language</label>
-							<div class="controls">
-								<form:input path="movieLanguage" placeholder="" class="input-xlarge" />
-								<p class="help-block">Enter the original movie language</p>
-							</div>
-						</div>
+                          <label class="control-label" for="movielanguage">Movie Language</label>
+                          <div class="controls">
+                            <form:select path="movieLanguage">
+                            	<form:option value="" label="Select language" />
+                            	<form:option value="hindi" label="Hindi" />
+                            	<form:option value="english" label="English" />
+                            </form:select>
+                            <p class="help-block">Select official movie language</p>
+                          </div>
+                        </div>
 
 						<div class="control-group">
 							<label class="control-label" for="releasedate">Movie Release Date</label>

@@ -23,9 +23,10 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10 section">
-				<h1 id="section-head">Add movie production details</h1>
+				<h1 id="section-head">Add a new movie</h1>
 				<hr />
-				<form:form commandName="movieProductionDto" class="form-horizontal">
+				<form:form commandName="movieGalleryDto" enctype="multipart/form-data" 
+					class="form-horizontal">
 					<fieldset>
 
 						<div class="control-group">
@@ -38,40 +39,68 @@
 						</div>
 
 						<div class="control-group">
-							<label class="control-label">Director</label>
+							<label class="control-label">
+							Provide an image to appear in search results page
+							</label>
 							<div class="controls">
-								<form:input path="director" placeholder="" class="input-xlarge" />
-								<p class="help-block">Enter the name of Director of the movie</p>
+								<form:input type="file" path="searchResultImage" 
+								placeholder="" class="input-xlarge" />
 							</div>
 						</div>
 
 						<div class="control-group">
-							<label class="control-label">Producer</label>
+							<label class="control-label">
+							Provide an image to appear as first carousel image in movie detail page
+							</label>
 							<div class="controls">
-								<form:input path="producer" placeholder="" class="input-xlarge" />
-								<p class="help-block">Enter name of producer of the movie</p>
+								<form:input type="file" path="carouselImage1" 
+								placeholder="" class="input-xlarge" />
 							</div>
 						</div>
 
 						<div class="control-group">
-							<label class="control-label">Studio</label>
+							<label class="control-label">
+							Provide an image to appear as second carousel image in movie detail page
+							</label>
 							<div class="controls">
-								<form:input path="studio" placeholder="" class="input-xlarge" />
-								<p class="help-block">Enter name of production studio</p>
+								<form:input type="file" path="carouselImage2" 
+								placeholder="" class="input-xlarge" />
 							</div>
 						</div>
 						
 						<div class="control-group">
-							<label class="control-label">Production Budget</label>
+							<label class="control-label">
+							Provide an image to appear as third carousel image in movie detail page
+							</label>
 							<div class="controls">
-								<form:input path="budget" placeholder="" class="input-xlarge" />
-								<p class="help-block">Enter the total production budget amount</p>
+								<form:input type="file" path="carouselImage3" 
+								placeholder="" class="input-xlarge" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label">
+							Provide an image to appear as fourth carousel image in movie detail page
+							</label>
+							<div class="controls">
+								<form:input type="file" path="carouselImage4" 
+								placeholder="" class="input-xlarge" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label">
+							Provide an image to appear as fifth carousel image in movie detail page
+							</label>
+							<div class="controls">
+								<form:input type="file" path="carouselImage5" 
+								placeholder="" class="input-xlarge" />
 							</div>
 						</div>
 
 						<div class="control-group">
 							<div class="controls">
-								<button type="submit" class="btn btn-success">Add Production Detail</button>
+								<button type="submit" class="btn btn-success">Add Movie Details</button>
 							</div>
 						</div>
 					</fieldset>
@@ -80,7 +109,7 @@
 			<div class="col-sm-1"></div>
 		</div>
 	</div>
-
+	
 	<footer class="container-fluid text-center">
 		<p>Footer Text</p>
 	</footer>

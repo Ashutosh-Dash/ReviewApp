@@ -27,8 +27,14 @@ public class MovieComponent {
 		return movieRepository.findByMovieTitleContainingIgnoreCase(movieTitle);
 	}
 	
-	public Movie getLastMovie(String movieTitle) {
-		return movieRepository.findFirstByMovieTitleOrderByMovieIdDesc(movieTitle);
+	@Transactional
+	public Movie getLastMovie() {
+		return movieRepository.findFirstByOrderByMovieIdDesc();
+	}
+	
+	@Transactional
+	public Movie getMovieByMovieId(long movieId) {
+		return movieRepository.findByMovieId(movieId);
 	}
 	
 	@Transactional

@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.mindfire.intern.reviewapp.domain.Movie;
 import com.mindfire.intern.reviewapp.dto.LoginInfo;
 import com.mindfire.intern.reviewapp.dto.MovieDTO;
+import com.mindfire.intern.reviewapp.dto.MovieGalleryDTO;
 import com.mindfire.intern.reviewapp.dto.MovieProductionDTO;
 import com.mindfire.intern.reviewapp.dto.Search;
 import com.mindfire.intern.reviewapp.dto.UserDetailDTO;
+import com.mindfire.intern.reviewapp.service.MovieProductionService;
 import com.mindfire.intern.reviewapp.service.MovieService;
 import com.mindfire.intern.reviewapp.service.UserDetailService;
 
@@ -40,6 +42,9 @@ public class ReviewAppFormsController {
 	
 	@Autowired
 	private MovieService movieService;
+	
+	@Autowired
+	private MovieProductionService movieProductionService;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -80,12 +85,10 @@ public class ReviewAppFormsController {
 	public String addedNewMovie(@ModelAttribute("movieDto") MovieDTO movieDto,
 			ModelMap model) {
 		movieService.createMovie(movieDto);
-		Movie movie = movieService.getLastMovie(movieDto.getMovieTitle());
-		model.addAttribute("Id", movie.getMovieId());
 		model.addAttribute("movieProductionDto", new MovieProductionDTO());
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
-		return "addproductiondetail";
+		return "redirect:addproductiondetail";
 		
 	}
 	
@@ -93,9 +96,20 @@ public class ReviewAppFormsController {
 	public String addedProductionDetail(
 			@ModelAttribute("movieProductionDto") MovieProductionDTO movieProdDto,
 			ModelMap model) {
+		movieProductionService.createMovieProduction(movieProdDto);
+		model.addAttribute("movieGalleryDto", new MovieGalleryDTO());
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
-		return "addgallery";
+		return "redirect:addgallery";
+		
+	}
+	
+	@RequestMapping(value = "addgallery", method = RequestMethod.POST)
+	public String addedGallery(@ModelAttribute("movieGalleryDto") MovieGalleryDTO movieGalleryDto, 
+			ModelMap model) {
+		model.addAttribute("search", new Search());
+		model.addAttribute("logininfo", new LoginInfo());
+		return "aboutus";
 		
 	}
 

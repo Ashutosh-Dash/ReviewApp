@@ -3,20 +3,27 @@ package com.mindfire.intern.reviewapp.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mindfire.intern.reviewapp.domain.Movie;
 import com.mindfire.intern.reviewapp.dto.LoginInfo;
 import com.mindfire.intern.reviewapp.dto.MovieDTO;
+import com.mindfire.intern.reviewapp.dto.MovieGalleryDTO;
 import com.mindfire.intern.reviewapp.dto.MovieProductionDTO;
 import com.mindfire.intern.reviewapp.dto.Search;
 import com.mindfire.intern.reviewapp.dto.UserDetailDTO;
+import com.mindfire.intern.reviewapp.service.MovieService;
 
 @Controller
 @RequestMapping("/")
 public class ReviewAppNavigationController {
+	
+	@Autowired
+	private MovieService movieService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String homePage(ModelMap model) {
@@ -78,10 +85,22 @@ public class ReviewAppNavigationController {
 	
 	@RequestMapping(value = "addproductiondetail", method = RequestMethod.GET)
 	public String addProductionDetail(ModelMap model) {
+		Movie movie = movieService.getLastMovie();
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
 		model.addAttribute("movieProductionDto", new MovieProductionDTO());
+		model.addAttribute("Id", movie.getMovieId());
 		return "addproductiondetail";
+		
+	}
+	
+	@RequestMapping(value = "addgallery", method = RequestMethod.GET)
+	public String addGallery(ModelMap model) {
+		model.addAttribute("search", new Search());
+		model.addAttribute("logininfo", new LoginInfo());
+		model.addAttribute("movieGalleryDto", new MovieGalleryDTO());
+		model.addAttribute("Id", movieService.getLastMovie().getMovieId());
+		return "addgallery";
 		
 	}
 

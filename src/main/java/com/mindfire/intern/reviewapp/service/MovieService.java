@@ -30,8 +30,12 @@ public class MovieService {
 		return movieComponent.getMovie(movieTitle);
 	}
 	
-	public Movie getLastMovie(String movieTitle) {
-		return movieComponent.getLastMovie(movieTitle);
+	public Movie getLastMovie() {
+		return movieComponent.getLastMovie();
+	}
+	
+	public Movie findByMovieId(long movieId) {
+		return movieComponent.getMovieByMovieId(movieId);
 	}
 	
 	public Movie createMovie(MovieDTO movieDto) {

@@ -18,6 +18,9 @@ import com.mindfire.intern.reviewapp.domain.Movie;
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
 	
 	List<Movie> findByMovieTitleContainingIgnoreCase(String movieTitle);
-	Movie findFirstByMovieTitleOrderByMovieIdDesc(String movieTitle);
+	
+	Movie findByMovieId(long movieId);
+	
+	Movie findFirstByOrderByMovieIdDesc();
 
 }

@@ -28,7 +28,6 @@ public class ReviewAppInitializer implements WebApplicationInitializer {
 		
 		servlet.setLoadOnStartup(1);
 		servlet.addMapping("/");
-		servlet.addMapping("/resources/**");
 	}
 
 }

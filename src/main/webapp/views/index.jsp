@@ -27,7 +27,7 @@
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                    <img src="resources/images/Latest-The-Force-Awakens-Trailer-Description.jpg" alt="Img">
+                    <img alt="Img" src="resources/images/Latest-The-Force-Awakens-Trailer-Description.jpg">
                     </div>
 
                     <div class="item">
