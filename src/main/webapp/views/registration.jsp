@@ -28,7 +28,7 @@
                           <label class="control-label" for="username">Username</label>
                           <div class="controls">
                             <form:input path="userName" id="username" name="username" placeholder=""
-                            class="input-xlarge" />
+                            class="input-xlarge" required="required" />
                             <p class="help-block">
                                 Username can contain any letters or numbers, without spaces
                             </p>
@@ -57,7 +57,7 @@
                           <label class="control-label" for="email">E-mail</label>
                           <div class="controls">
                             <form:input path="emailId" type="email" id="email" name="email" placeholder=""
-                            class="input-xlarge" />
+                            class="input-xlarge" required="required" />
                             <p class="help-block">Please provide your E-mail</p>
                           </div>
                         </div>
@@ -66,7 +66,7 @@
                           <label class="control-label" for="password">Password</label>
                           <div class="controls">
                             <form:password path="password" id="password" name="password"
-                                   placeholder="" class="input-xlarge" pattern=".{8,16}" />
+                                   placeholder="" class="input-xlarge" pattern=".{8,16}" required="required" />
                             <p class="help-block">
                                 Password should be at least 8 characters and 16 characters at maximum
                             </p>
@@ -79,7 +79,7 @@
                           </label>
                           <div class="controls">
                             <input type="password" id="password_confirm" pattern=".{8,16}"
-                                name="password_confirm" placeholder="" class="input-xlarge" />
+                                name="password_confirm" placeholder="" class="input-xlarge" required="required" />
                             <p class="help-block">Please confirm password</p>
                           </div>
                         </div>
@@ -87,7 +87,7 @@
                         <div class="control-group">
                           <label class="control-label" for="list">Secret Question</label>
                           <div class="controls">
-                            <form:select path="secretQuestion">
+                            <form:select path="secretQuestion" required="required">
                             	<form:option value="0" label="Select your secret question" />
                             	<form:options items="${questionList}" />
                             </form:select>
@@ -101,7 +101,7 @@
                           <label class="control-label" for="answer">Secret Answer</label>
                           <div class="controls">
                             <form:input path="secretAnswer" id="answer" name="answer" placeholder=""
-                            class="input-xlarge" />
+                            class="input-xlarge" required="required" />
                             <p class="help-block">Enter answer to your secret question</p>
                           </div>
                         </div>

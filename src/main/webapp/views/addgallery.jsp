@@ -37,14 +37,15 @@
 								<p class="help-block">This id is auto generated for the movie</p>
 							</div>
 						</div>
-
+						
+						
 						<div class="control-group">
 							<label class="control-label">
 							Provide an image to appear in search results page
 							</label>
 							<div class="controls">
 								<form:input type="file" path="searchResultImage" 
-								placeholder="" class="input-xlarge" />
+								placeholder="" class="input-xlarge" required="required" />
 							</div>
 						</div>
 
@@ -54,7 +55,7 @@
 							</label>
 							<div class="controls">
 								<form:input type="file" path="carouselImage1" 
-								placeholder="" class="input-xlarge" />
+								placeholder="" class="input-xlarge" required="required" />
 							</div>
 						</div>
 
@@ -64,7 +65,7 @@
 							</label>
 							<div class="controls">
 								<form:input type="file" path="carouselImage2" 
-								placeholder="" class="input-xlarge" />
+								placeholder="" class="input-xlarge" required="required" />
 							</div>
 						</div>
 						
@@ -74,7 +75,7 @@
 							</label>
 							<div class="controls">
 								<form:input type="file" path="carouselImage3" 
-								placeholder="" class="input-xlarge" />
+								placeholder="" class="input-xlarge" required="required" />
 							</div>
 						</div>
 						
@@ -84,7 +85,7 @@
 							</label>
 							<div class="controls">
 								<form:input type="file" path="carouselImage4" 
-								placeholder="" class="input-xlarge" />
+								placeholder="" class="input-xlarge" required="required" />
 							</div>
 						</div>
 						
@@ -94,13 +95,13 @@
 							</label>
 							<div class="controls">
 								<form:input type="file" path="carouselImage5" 
-								placeholder="" class="input-xlarge" />
+								placeholder="" class="input-xlarge" required="required" />
 							</div>
 						</div>
 
 						<div class="control-group">
 							<div class="controls">
-								<button type="submit" class="btn btn-success">Add Movie Details</button>
+								<button type="submit" class="btn btn-success">Add Images</button>
 							</div>
 						</div>
 					</fieldset>

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mindfire.intern.reviewapp.component.MovieProductionComponent;
+import com.mindfire.intern.reviewapp.domain.Movie;
 import com.mindfire.intern.reviewapp.domain.MovieProduction;
 import com.mindfire.intern.reviewapp.dto.MovieProductionDTO;
 
@@ -27,7 +28,7 @@ public class MovieProductionService {
 	@Autowired
 	private MovieService movieService;
 	
-	public MovieProduction findByMovie(long movie) {
+	public MovieProduction findByMovie(Movie movie) {
 		return movieProductionComponent.getMovieProduction(movie);
 	}
 	

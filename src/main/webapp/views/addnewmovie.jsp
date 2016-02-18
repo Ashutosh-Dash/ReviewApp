@@ -15,6 +15,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="resources/js/customjs.js"></script>
 </head>
 <body>
 
@@ -33,7 +34,7 @@
 							<label class="control-label" for="movietitle">Movie Title</label>
 							<div class="controls">
 								<form:input path="movieTitle" placeholder="" 
-								class="input-xlarge" />
+								class="input-xlarge" required="required" />
 								<p class="help-block">Enter the official movie title</p>
 							</div>
 						</div>
@@ -41,7 +42,7 @@
 						<div class="control-group">
                           <label class="control-label" for="movielanguage">Movie Language</label>
                           <div class="controls">
-                            <form:select path="movieLanguage">
+                            <form:select path="movieLanguage" required="required">
                             	<form:option value="" label="Select language" />
                             	<form:option value="hindi" label="Hindi" />
                             	<form:option value="english" label="English" />
@@ -53,7 +54,8 @@
 						<div class="control-group">
 							<label class="control-label" for="releasedate">Movie Release Date</label>
 							<div class="controls">
-								<form:input path="releaseDate" placeholder="" class="input-xlarge" />
+								<form:input path="releaseDate" id="datepicker" placeholder="" 
+								class="input-xlarge" required="required" />
 								<p class="help-block">
 								Enter the official movie release date (In format : mm/dd/yyyy)
 								</p>
