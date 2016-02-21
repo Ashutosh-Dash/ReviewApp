@@ -9,15 +9,8 @@ package com.mindfire.intern.reviewapp.dto;
  */
 public class LoginInfo {
 
-	private String email;
+	private String userName;
 	private String password;
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
 
 	/**
 	 * @return the password
@@ -27,11 +20,17 @@ public class LoginInfo {
 	}
 
 	/**
-	 * @param email
-	 *            the email to set
+	 * @return the userName
 	 */
-	public void setEmail(String email) {
-		this.email = email;
+	public String getUserName() {
+		return userName;
+	}
+
+	/**
+	 * @param userName the userName to set
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	/**

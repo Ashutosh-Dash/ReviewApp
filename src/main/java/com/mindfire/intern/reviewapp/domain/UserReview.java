@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * @UserReview.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.domain;
 
@@ -17,6 +18,9 @@ import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
 /**
+ * The UserReview class is an entity class that represents the model of
+ * the table user_review in the database
+ * @version 1.0_02192016
  * @author Ashutosh Dash
  *
  */
@@ -46,7 +50,7 @@ public class UserReview implements Serializable {
 	@Column(name = "user_review", columnDefinition = "TEXT")
 	private String review;
 
-	@Column(name = "user_rating", nullable = false)
+	@Column(name = "user_rating")
 	private short rating;
 
 	@Column(name = "added_on", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP ")

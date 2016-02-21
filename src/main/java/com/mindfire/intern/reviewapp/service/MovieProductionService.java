@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * @MovieProductionService.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.service;
 
@@ -14,6 +15,9 @@ import com.mindfire.intern.reviewapp.domain.MovieProduction;
 import com.mindfire.intern.reviewapp.dto.MovieProductionDTO;
 
 /**
+ * The MovieProductionService class contains methods for interaction between 
+ * controller classes and MovieProductionComponent class
+ * @version 1.0_02192016
  * @author Ashutosh Dash
  *
  */
@@ -28,10 +32,22 @@ public class MovieProductionService {
 	@Autowired
 	private MovieService movieService;
 	
+	/**
+	 * This method calls the corresponding component class method to
+	 * retrieve a movie production detail from its id
+	 * @param movie A Movie object as movie id
+	 * @return Returns a MovieProduction object
+	 */
 	public MovieProduction findByMovie(Movie movie) {
 		return movieProductionComponent.getMovieProduction(movie);
 	}
 	
+	/**
+	 * This method calls the corresponding component class method to store
+	 * the production details corresponding to the movie id
+	 * @param movieProductionDto A MovieProductionDTO object
+	 * @return Returns a MoviePruduction object
+	 */
 	public MovieProduction createMovieProduction(MovieProductionDTO movieProductionDto) {
 		MovieProduction movieProduction = new MovieProduction();
 		movieProduction.setMovie(movieService.findByMovieId(movieProductionDto.getMovieId()));

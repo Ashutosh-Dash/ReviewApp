@@ -83,9 +83,9 @@ h3 {
 }
 
 h1#section-head {
+	background-image: url(../images/img12.jpg);
     color: darkcyan;
     padding: 5px;
-    background-image: url(resources/images/img12.jpg);
     height: 50px;
     width: 480px;
 }

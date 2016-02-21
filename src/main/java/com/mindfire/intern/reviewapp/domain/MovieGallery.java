@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * @MovieGallery.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.domain;
 
@@ -16,6 +17,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
+ * The MovieGallery class is an entity class that represents the model of
+ * the table movie_images_gallery in the database
+ * @version 1.0_02192016
  * @author Ashutosh Dash
  *
  */
@@ -24,9 +28,6 @@ import javax.persistence.Table;
 @NamedNativeQuery(name = "MovieGallery.findAll", query = "SELECT mg from MovieGallery mg")
 public class MovieGallery implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

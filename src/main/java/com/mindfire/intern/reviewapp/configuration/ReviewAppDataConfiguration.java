@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * @ReviewAppDataConfiguration.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.configuration;
 
@@ -23,6 +24,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
+ * The ReviewAppDataConfiguration class configures the application to use spring data jpa
+ * This class implements methods to connect the application to the database
+ * @version 1.0_02192016
  * @author mindfire
  *
  */

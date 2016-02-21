@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * @MovieProduction.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.domain;
 
@@ -16,6 +17,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
+ * The MovieProduction class is an entity class that represents the model of
+ * the table movie_production in the database
+ * @version 1.0_02192016
  * @author Ashutosh Dash
  *
  */
@@ -24,9 +28,6 @@ import javax.persistence.Table;
 @NamedNativeQuery(name = "MovieProduction.findAll", query = "SELECI mp from MovieProduction mp")
 public class MovieProduction implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

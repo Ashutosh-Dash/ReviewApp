@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * @Movie.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.domain;
 
@@ -15,6 +16,9 @@ import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
 /**
+ * The Movie class is an entity class that represents the model of
+ * the table movie in the database
+ * @version 1.0_02192016
  * @author Ashutosh Dash
  *
  */
@@ -23,9 +27,6 @@ import javax.persistence.Table;
 @NamedNativeQuery(name = "Movie.findAll", query = "SELECT m from Movie m")
 public class Movie implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -48,7 +49,7 @@ public class Movie implements Serializable {
 	@Column(name = "trailer_link")
 	private String trailerLink;
 
-	@Column
+	@Column(columnDefinition = "TEXT")
 	private String description;
 
 	@Column(name = "overall_rating")

@@ -1,9 +1,13 @@
-/**
- * 
+/*
+ * @MovieGalleryAsPath.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.dto;
 
 /**
+ * The MovieGalleryAsPath class can be used to contain the absolute paths
+ * of the elements of the movie gallery
+ * @version 1.0_02192016
  * @author Ashutosh Dash
  *
  */

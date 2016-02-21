@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * @MovieRepository.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.repository;
 
@@ -11,13 +12,18 @@ import org.springframework.stereotype.Repository;
 import com.mindfire.intern.reviewapp.domain.Movie;
 
 /**
+ * The MovieRepository interface is the repository for the
+ * movie table to be used for CRUD operations
+ * @version 1.0_02192016
  * @author Ashutosh Dash
  *
  */
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
 	
-	List<Movie> findByMovieTitleContainingIgnoreCase(String movieTitle);
+	List<Movie> findByMovieTitleContainingIgnoreCaseOrderByReleaseDateDesc(String movieTitle);
+	
+	List<Movie> findByMovieLanguageOrderByReleaseDate(String movieLanguage);
 	
 	Movie findByMovieId(long movieId);
 	

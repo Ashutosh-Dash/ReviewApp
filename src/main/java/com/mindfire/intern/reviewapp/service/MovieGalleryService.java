@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * @MovieGalleryService.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.service;
 
@@ -14,6 +15,8 @@ import com.mindfire.intern.reviewapp.domain.MovieGallery;
 import com.mindfire.intern.reviewapp.dto.MovieGalleryAsPath;
 
 /**
+ * The MovieGalleryService class contains methods for interaction between 
+ * controller classes and MovieGalleryComponent class
  * @author Ashutosh Dash
  *
  */
@@ -28,10 +31,35 @@ public class MovieGalleryService {
 	@Autowired
 	private MovieService movieService;
 	
+	/**
+	 * This method calls the corresponding component class method to
+	 * retrieve a movie image gallery from its id
+	 * @param movie A Movie object as movie id
+	 * @return Returns a MovieGallery object
+	 */
 	public MovieGallery findByMovie(Movie movie) {
 		return movieGalleryComponent.getMoviegallery(movie);
 	}
 	
+	public MovieGalleryAsPath findRelativePathByMovie(Movie movie) {
+		MovieGallery movieGallery = movieGalleryComponent.getMoviegallery(movie);
+		MovieGalleryAsPath movieGalleryAsPath = new MovieGalleryAsPath();
+		movieGalleryAsPath.setMovieId(movie.getMovieId());
+		movieGalleryAsPath.setSearchResultImage(movieService.relativePath(movieGallery.getSearchResultImage()));
+		movieGalleryAsPath.setCarouselImage1(movieService.relativePath(movieGallery.getCarouselImage1()));
+		movieGalleryAsPath.setCarouselImage2(movieService.relativePath(movieGallery.getCarouselImage2()));
+		movieGalleryAsPath.setCarouselImage3(movieService.relativePath(movieGallery.getCarouselImage3()));
+		movieGalleryAsPath.setCarouselImage4(movieService.relativePath(movieGallery.getCarouselImage4()));
+		movieGalleryAsPath.setCarouselImage5(movieService.relativePath(movieGallery.getCarouselImage5()));
+		return movieGalleryAsPath;
+	}
+	
+	/**
+	 * This method calls the corresponding component class method to store
+	 * the absolute paths of the images corresponding to the movie id
+	 * @param galleryAsPath A MovieGalleryAsPath object
+	 * @return Returns the created movie gallery as MoVieGallery object
+	 */
 	public MovieGallery createMovieGallery(MovieGalleryAsPath galleryAsPath) {
 		
 		long mid = galleryAsPath.getMovieId();

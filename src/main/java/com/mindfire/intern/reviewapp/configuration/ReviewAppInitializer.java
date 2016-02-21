@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * @ReviewAppInitializer.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.configuration;
 
@@ -12,11 +13,17 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 
 /**
- * @author mindfire
+ * The ReviewAppInitializer class implements methods to initialize the ReviewApp application
+ * The execution of the application starts here
+ * @version 1.0_02192016
+ * @author Ashutosh Dash
  *
  */
 public class ReviewAppInitializer implements WebApplicationInitializer {
 
+	/**
+	 * This method configures the dispatcher servlet for the initialization of the application
+	 */
 	public void onStartup(ServletContext container) throws ServletException {
 		// TODO Auto-generated method stub
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();

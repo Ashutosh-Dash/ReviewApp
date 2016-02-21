@@ -11,11 +11,15 @@
 <link rel="stylesheet" type="text/css" href="resources/css/common.css"></link>
 <link href='https://fonts.googleapis.com/css?family=Merriweather:700'
 	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="resources/css/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="resources/css/jquery-ui.structure.min.css">
+<link rel="stylesheet" type="text/css" href="resources/css/jquery-bootstrap-datepicker.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="resources/js/customjs.js"></script>
+<script src="resources/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="resources/js/custom-datepickerz.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -81,9 +85,10 @@
 						</div>
 						
 						<div class="control-group">
-							<label class="control-label" for="username">Description</label>
+							<label class="control-label">Description</label>
 							<div class="controls">
-								<form:textarea path="description" placeholder="" class="input-xlarge" />
+								<form:textarea path="description" placeholder="" rows="10"
+								class="input-xlarge form-control" />
 								<p class="help-block">A brief description of movie</p>
 							</div>
 						</div>

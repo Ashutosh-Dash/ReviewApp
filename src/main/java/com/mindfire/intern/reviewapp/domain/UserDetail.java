@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * @UserDetail.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.domain;
 
@@ -14,6 +15,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
+ * The UserDetail class is an entity class that represents the model of
+ * the table user_detail in the database
+ * @version 1.0_02192016
  * @author Ashutosh Dash
  *
  */
@@ -22,9 +26,6 @@ import javax.persistence.Table;
 @NamedQuery(name = "UserDetail.findAll", query = "SELECT u from UserDetail u")
 public class UserDetail implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

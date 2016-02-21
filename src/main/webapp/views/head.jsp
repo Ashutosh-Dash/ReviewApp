@@ -1,4 +1,5 @@
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="jumbotron">
 	<div class="container text-center">
 		<h1>The Movie Club</h1>
@@ -25,52 +26,84 @@
 
 					<ul class="dropdown-menu">
 						<!-- Movies dropdown menu -->
-						<li><a href="movielist">Bollywood</a></li>
-						<li><a href="movielist">Hollwwood</a></li>
+						<li><a href="movielistB">Bollywood</a></li>
+						<li><a href="movielistH">Hollwwood</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="movielist">Latest Releases</a></li>
+						<li><a href="movielistAllByDate">Latest Releases</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="movielist">Most Reviewed</a></li>
 					</ul> <!-- End of dropdown menu --></li>
 				<li><a href="aboutus">About us</a></li>
 				<li><a href="#">Contact</a></li>
 			</ul>
-			<form:form commandName="search" action="search" class="navbar-form navbar-left" role="search">
+			<form:form commandName="search" action="search"
+				class="navbar-form navbar-left" role="search">
 				<div class="form-group">
-					<form:input path="searchItem" class="form-control" placeholder="Search movies" />
+					<form:input path="searchItem" class="form-control"
+						placeholder="Search movies" />
 					<button type="submit" class="btn btn-default">Submit</button>
 				</div>
 			</form:form>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false"> <span class="glyphicon glyphicon-log-in"></span>
-						Login <span class="caret"></span>
-				</a>
+				<c:choose>
+					<c:when test="${not empty userInfo}">
+						
+						<c:if test="${userInfo.role=='admin' }">
+						<li>
+							<a href="addnewmovie">Add a new movie</a>
+						</li>
+						</c:if>
+						<li>
+							<a href="logout">
+								<span class="glyphicon glyphicon-user"> </span>
+								${userInfo.userName}
+							</a>
+						</li>
+						<li>
+							<a href="logout">
+								<span class="glyphicon glyphicon-log-out"> </span>
+								Logout
+							</a>
+						</li>
+					</c:when>
+					<c:otherwise>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false">
+								<span class="glyphicon glyphicon-log-in"> </span> Login
+								<span class="caret"></span>
+							</a>
 
-					<ul class="dropdown-menu">
-						<form:form commandName="logininfo" action="login" class="form-signin lgin-frm">
-							<li>
-								<label for="inputEmail" class="sr-only">Email address</label>
-								<form:input path="email" id="inputEmail"
-								class="form-control" placeholder="Email address" />
-							</li>
+							<ul class="dropdown-menu">
+								<form:form commandName="logininfo" action="login"
+									class="form-signin lgin-frm">
+									<li>
+										<label for="inputEmail" class="sr-only">User name</label>
+										<form:input path="userName" class="form-control"
+											placeholder="Username" />
+									</li>
 
-							<li><label for="inputPassword" class="sr-only">Password</label>
-								<form:password path="password" id="inputPassword" class="form-control"
-								placeholder="Password" />
-							</li>
+									<li>
+										<label for="inputPassword" class="sr-only">Password</label>
+										<form:password path="password" id="inputPassword"
+											class="form-control" placeholder="Password" />
+									</li>
 
-							<li>
-								<button class="btn btn-lg btn-primary btn-block" type="submit">
-									Login
-								</button>
-							</li>
-							<li><a href="forgotPW">Forgot Password</a></li>
-						</form:form>
-					</ul>
-				<li><a href="registration"><span
-						class="glyphicon glyphicon-user"> </span> Join us </a></li>
+									<li>
+										<button class="btn btn-lg btn-primary btn-block" type="submit">
+											Login</button>
+									</li>
+									<li><a href="forgotPW">Forgot Password</a></li>
+								</form:form>
+							</ul>
+						<li>
+							<a href="registration">
+							<span class="glyphicon glyphicon-user"> </span>
+							Join us</a>
+						</li>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 		</div>
 	</div>

@@ -1,9 +1,13 @@
-/**
- * 
+/*
+ * @MovieProductionDTO.java 1.0_02192016
+ * Copyright (c) 1999-2016 MindfireSolutions
  */
 package com.mindfire.intern.reviewapp.dto;
 
 /**
+ * The MovieProductionDTO class can be used to contain the incoming data from
+ * movie production detail form
+ * @version 1.0_02192016
  * @author Ashutosh Dash
  *
  */
