@@ -131,6 +131,13 @@ public class MovieService {
 		return createdmovie;
 	}
 	
+	/**
+	 * This method takes a movie object as paremeter and returns the movie id, 
+	 * movie title and the relative path of the image for search result page
+	 * This method can be used to fetch only the required data in the search result page
+	 * @param movie A movie object
+	 * @return Returns a MovieResult object
+	 */
 	public MovieResult addToMovieResult(Movie movie) {
 		MovieResult movieResult = new MovieResult();
 		movieResult.setMovieId(movie.getMovieId());
@@ -140,6 +147,12 @@ public class MovieService {
 		return movieResult;
 	}
 	
+	/**
+	 * This method takes an absolute path of a file as String and returns the relative
+	 * path compared to the given base path
+	 * @param absolutePath
+	 * @return
+	 */
 	public String relativePath(String absolutePath) {
 		Path pathA = Paths.get(absolutePath);
 		Path pathB = Paths.get(ReviewAppConstants.BASE_PATH);

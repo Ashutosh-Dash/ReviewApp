@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="resources/css/common.css"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="resources/js/confirmPassword.js" type="text/javascript"></script>
     </head>
     <body>
         
@@ -21,7 +22,8 @@
                     <h1 id="section-head">Join us today</h1>
                     <hr />
                     <img alt="Image" src="resources/images/11179463ori.jpg" />
-                    <form:form commandName="userDetailDto" class="form-horizontal">
+                    <form:form commandName="userDetailDto" class="form-horizontal" 
+                    onsubmit="return passwordFunction(this);">
                       <fieldset>
                           
                         <div class="control-group">

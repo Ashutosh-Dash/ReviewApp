@@ -37,6 +37,11 @@ public class UserReviewComponent {
 		return userReviewRepopsitory.findByMovie(movie);
 	}
 	
+	/**
+	 * This method uses repository method to store user review in the database
+	 * @param userReview
+	 * @return
+	 */
 	@Transactional
 	public UserReview saveUserReview(UserReview userReview) {
 		return userReviewRepopsitory.save(userReview);

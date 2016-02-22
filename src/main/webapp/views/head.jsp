@@ -13,12 +13,12 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index">TMC</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/index">TMC</a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><a href="index">Home</a></li>
+				<li><a href="${pageContext.request.contextPath}/index">Home</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false"> Movies <span class="caret"></span>
@@ -26,17 +26,21 @@
 
 					<ul class="dropdown-menu">
 						<!-- Movies dropdown menu -->
-						<li><a href="movielistB">Bollywood</a></li>
-						<li><a href="movielistH">Hollwwood</a></li>
+						<li><a href="${pageContext.request.contextPath}/movielistB">Bollywood</a></li>
+						<li><a href="${pageContext.request.contextPath}/movielistH">Hollwwood</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="movielistAllByDate">Latest Releases</a></li>
+						<li>
+							<a href="${pageContext.request.contextPath}/movielistAllByDate">
+								Latest Releases
+							</a>
+						</li>
 						<li role="separator" class="divider"></li>
 						<li><a href="movielist">Most Reviewed</a></li>
 					</ul> <!-- End of dropdown menu --></li>
-				<li><a href="aboutus">About us</a></li>
+				<li><a href="${pageContext.request.contextPath}/aboutus">About us</a></li>
 				<li><a href="#">Contact</a></li>
 			</ul>
-			<form:form commandName="search" action="search"
+			<form:form commandName="search" action="${pageContext.request.contextPath}/search"
 				class="navbar-form navbar-left" role="search">
 				<div class="form-group">
 					<form:input path="searchItem" class="form-control"
@@ -54,7 +58,7 @@
 						</li>
 						</c:if>
 						<li>
-							<a href="logout">
+							<a href="${pageContext.request.contextPath}/index">
 								<span class="glyphicon glyphicon-user"> </span>
 								${userInfo.userName}
 							</a>
@@ -76,8 +80,9 @@
 							</a>
 
 							<ul class="dropdown-menu">
-								<form:form commandName="logininfo" action="login"
-									class="form-signin lgin-frm">
+								<form:form commandName="logininfo" 
+								action="${pageContext.request.contextPath}/login"
+								class="form-signin lgin-frm">
 									<li>
 										<label for="inputEmail" class="sr-only">User name</label>
 										<form:input path="userName" class="form-control"
@@ -94,11 +99,15 @@
 										<button class="btn btn-lg btn-primary btn-block" type="submit">
 											Login</button>
 									</li>
-									<li><a href="forgotPW">Forgot Password</a></li>
+									<li>
+										<a href="${pageContext.request.contextPath}/forgotPW">
+											Forgot Password
+										</a>
+									</li>
 								</form:form>
 							</ul>
 						<li>
-							<a href="registration">
+							<a href="${pageContext.request.contextPath}/registration">
 							<span class="glyphicon glyphicon-user"> </span>
 							Join us</a>
 						</li>

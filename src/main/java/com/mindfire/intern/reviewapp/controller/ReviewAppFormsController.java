@@ -32,12 +32,14 @@ import com.mindfire.intern.reviewapp.dto.MovieGalleryAsPath;
 import com.mindfire.intern.reviewapp.dto.MovieGalleryDTO;
 import com.mindfire.intern.reviewapp.dto.MovieProductionDTO;
 import com.mindfire.intern.reviewapp.dto.MovieResult;
+import com.mindfire.intern.reviewapp.dto.ReviewDTO;
 import com.mindfire.intern.reviewapp.dto.Search;
 import com.mindfire.intern.reviewapp.dto.UserDetailDTO;
 import com.mindfire.intern.reviewapp.service.MovieGalleryService;
 import com.mindfire.intern.reviewapp.service.MovieProductionService;
 import com.mindfire.intern.reviewapp.service.MovieService;
 import com.mindfire.intern.reviewapp.service.UserDetailService;
+import com.mindfire.intern.reviewapp.service.UserReviewService;
 
 /**
  * The class ReviewAppFormsController implements methods to receive and navigate
@@ -49,7 +51,7 @@ import com.mindfire.intern.reviewapp.service.UserDetailService;
  *
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping({"/"})
 public class ReviewAppFormsController {
 
 	@Autowired
@@ -66,6 +68,9 @@ public class ReviewAppFormsController {
 
 	@Autowired
 	private MovieGalleryService movieGalleryService;
+	
+	@Autowired
+	private UserReviewService userReviewService;
 
 	/**
 	 * This method converts the incoming data of date format and binds it to an
@@ -150,6 +155,25 @@ public class ReviewAppFormsController {
 			return ReviewAppConstants.INVALID_LOGIN_PAGE;
 		}
 
+	}
+	
+	/**
+	 * This method handles the incoming data from the review submission form
+	 * @param reviewDto
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "submitReview", method = RequestMethod.POST)
+	public String reviewAdded(@ModelAttribute("reviewDto") ReviewDTO reviewDto,
+			ModelMap model,
+			HttpSession session) {
+		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
+		userReviewService.createUserReview(reviewDto);
+		model.addAttribute("reviewDto", new ReviewDTO());
+		model.addAttribute("search", new Search());
+		model.addAttribute("logininfo", new LoginInfo());
+		return ReviewAppConstants.MOVIE_LIST_PAGE;
 	}
 
 	/**

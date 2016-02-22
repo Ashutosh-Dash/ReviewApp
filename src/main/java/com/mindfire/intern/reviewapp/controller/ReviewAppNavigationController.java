@@ -11,19 +11,28 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mindfire.intern.reviewapp.domain.Movie;
+import com.mindfire.intern.reviewapp.domain.MovieProduction;
 import com.mindfire.intern.reviewapp.dto.LoggedInUserInfo;
 import com.mindfire.intern.reviewapp.dto.LoginInfo;
 import com.mindfire.intern.reviewapp.dto.MovieDTO;
+import com.mindfire.intern.reviewapp.dto.MovieGalleryAsPath;
 import com.mindfire.intern.reviewapp.dto.MovieGalleryDTO;
 import com.mindfire.intern.reviewapp.dto.MovieProductionDTO;
 import com.mindfire.intern.reviewapp.dto.MovieResult;
+import com.mindfire.intern.reviewapp.dto.ReviewDTO;
 import com.mindfire.intern.reviewapp.dto.Search;
 import com.mindfire.intern.reviewapp.dto.UserDetailDTO;
+import com.mindfire.intern.reviewapp.dto.UserNameAndReviews;
+import com.mindfire.intern.reviewapp.service.MovieGalleryService;
+import com.mindfire.intern.reviewapp.service.MovieProductionService;
 import com.mindfire.intern.reviewapp.service.MovieService;
+import com.mindfire.intern.reviewapp.service.UserReviewService;
 
 /**
  * The ReviewAppNavigationController class is a controller class for general
@@ -34,11 +43,20 @@ import com.mindfire.intern.reviewapp.service.MovieService;
  *
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping({"/", "/moviedetail/"})
 public class ReviewAppNavigationController {
 
 	@Autowired
 	private MovieService movieService;
+	
+	@Autowired
+	private MovieProductionService movieProductionService;
+
+	@Autowired
+	private MovieGalleryService galleryService;
+	
+	@Autowired
+	private UserReviewService userReviewService;
 
 	/**
 	 * This method returns the initial view of the application
@@ -131,6 +149,73 @@ public class ReviewAppNavigationController {
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
 		return ReviewAppConstants.MOVIE_LIST_PAGE;
+	}
+	
+	/**
+	 * This method returns the movie results ordered in latest release format
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "movielistAllByDate", method = RequestMethod.GET)
+	public String latestRelease(ModelMap model, HttpSession session) {
+		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
+		List<MovieResult> movieResults = movieService.findResultByMovieTitle("");
+		model.addAttribute("results", movieResults);
+		model.addAttribute("search", new Search());
+		model.addAttribute("logininfo", new LoginInfo());
+		return ReviewAppConstants.MOVIE_LIST_PAGE;
+	}
+	
+	/**
+	 * This method returns the moviedetail page
+	 * 
+	 * @param model
+	 *            Receives the model of request
+	 * @param session
+	 *            Receives the session object from request
+	 * @return Returns the initial view
+	 */
+	@RequestMapping(value = "moviedetail", method = RequestMethod.GET)
+	public String movieDetail(ModelMap model,
+			HttpSession session) {
+		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
+		model.addAttribute("reviewDto", new ReviewDTO());
+		model.addAttribute("search", new Search());
+		model.addAttribute("logininfo", new LoginInfo());
+		return ReviewAppConstants.MOVIE_DETAIL_PAGE;
+
+	}
+	
+	/**
+	 * This method returns the moviedetail page with movie data
+	 * 
+	 * @param model
+	 *            Receives the model of request
+	 * @param session
+	 *            Receives the session object from request
+	 * @return Returns the initial view
+	 */
+	@RequestMapping(value = "moviedetail/{movieId}")
+	public String movieDetailWithId(@ModelAttribute("search") Search search,
+			@ModelAttribute("logininfo") LoginInfo loginInfo,
+			@ModelAttribute("reviewDto") ReviewDTO reviewDto, 
+			@PathVariable("movieId") long movieId, ModelMap model,
+			HttpSession session) {
+		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
+		Movie movie = movieService.findByMovieId(movieId);
+		MovieProduction movieProduction = movieProductionService.findByMovie(movie);
+		MovieGalleryAsPath movieGalleryAsPath = galleryService.findRelativePathByMovie(movie);
+		List<UserNameAndReviews> reviews = userReviewService.getNameReview(movieId);
+		model.addAttribute("movie", movie);
+		model.addAttribute("movieProduction", movieProduction);
+		model.addAttribute("movieGalleryAsPath", movieGalleryAsPath);
+		model.addAttribute("reviews", reviews);
+		model.addAttribute("reviewDto", new ReviewDTO());
+		model.addAttribute("search", new Search());
+		model.addAttribute("logininfo", new LoginInfo());
+		return ReviewAppConstants.MOVIE_DETAIL_PAGE;
+
 	}
 
 	/**

@@ -124,7 +124,8 @@
 
 				<c:if test="${not empty userInfo}">
 
-					<form:form commandName="reviewDto" action="submitReview" class="form-horizontal">
+					<form:form commandName="reviewDto"
+					 action="${pageContext.request.contextPath}/submitReview" class="form-horizontal">
 
 						<div class="control-group">
 							<div class="controls">

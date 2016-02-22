@@ -21,7 +21,7 @@
 
                 <c:forEach var="movieResult" items="${results}">
                 	<div class="col-sm-4">
-                		<a href="moviedetail/${movieResult.movieId}">
+                		<a href="${pageContext.request.contextPath}/moviedetail/${movieResult.movieId}">
                     		<div class="panel panel-primary">
                         		<div class="panel-heading">${movieResult.movieTitle }</div>
                         		<div class="panel-body">

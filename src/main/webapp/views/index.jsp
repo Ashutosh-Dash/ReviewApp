@@ -75,14 +75,14 @@
           <br>
           <div class="row">
             <div class="col-sm-3">
-                <a href="movielist">
+                <a href="movielistH">
                   <img src="resources/images/hollywood-sign1999_fnokt4ke2.jpg" class="img-responsive"
                   style="width:100%" alt="Image">
                 </a>
             </div>
 
             <div class="col-sm-3"> 
-                <a href="movielist">
+                <a href="movielistB">
                     <img src="resources/images/bollywood-indian-film-industry-9345238.jpg"
                     class="img-responsive" style="width:100%" alt="Image" />
                 </a>  
