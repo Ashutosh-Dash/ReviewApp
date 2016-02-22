@@ -49,8 +49,30 @@ public class MovieService {
 		return movieComponent.getMovie(movieTitle);
 	}
 	
+	/**
+	 * This method retrieves a list of MovieResult objects where the movieTitle
+	 * is similar to the input parameter
+	 * @param movieTitle A Stirng object
+	 * @return Returns a List of MovieResult objects
+	 */
 	public List<MovieResult> findResultByMovieTitle(String movieTitle) {
 		List<Movie> movies = this.findByMovieTitle(movieTitle);
+		List<MovieResult> movieResults = new ArrayList<>();
+		Iterator<Movie> itr = movies.iterator();
+		while(itr.hasNext()) {
+			movieResults.add(this.addToMovieResult(itr.next()));
+		}
+		return movieResults;
+	}
+	
+	/**
+	 * This method retrieves a list of MovieResult objects where the movieLanguage
+	 * is similar to the input parameter
+	 * @param movieLanguage A Stirng object
+	 * @return Returns a List of MovieResult objects
+	 */
+	public List<MovieResult> findResultsByMovieLanguage(String movieLanguage) {
+		List<Movie> movies = this.findByMovieLanguage(movieLanguage);
 		List<MovieResult> movieResults = new ArrayList<>();
 		Iterator<Movie> itr = movies.iterator();
 		while(itr.hasNext()) {

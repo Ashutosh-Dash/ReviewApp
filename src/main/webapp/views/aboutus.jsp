@@ -18,9 +18,7 @@
 	
 	<jsp:directive.include file="head.jsp" />
 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer>
+	<jsp:directive.include file="footertext.jsp" />
 
 </body>
 </html>

@@ -20,5 +20,6 @@ import com.mindfire.intern.reviewapp.domain.UserDetail;
 public interface UserDetailRepository extends JpaRepository<UserDetail, Integer> {
 	
 	UserDetail findByUserName(String userName);
+	UserDetail findByUserId(long userId);
 
 }

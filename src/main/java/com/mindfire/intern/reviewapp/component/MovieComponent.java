@@ -45,7 +45,8 @@ public class MovieComponent {
 	 */
 	@Transactional
 	public List<Movie> getMovieByLanguage(String movieLanguage) {
-		return movieRepository.findByMovieLanguageOrderByReleaseDate(movieLanguage);
+		return movieRepository.
+				findByMovieLanguageContainingIgnoreCaseOrderByReleaseDateDesc(movieLanguage);
 	}
 	
 	/**

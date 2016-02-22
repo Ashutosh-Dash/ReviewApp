@@ -107,9 +107,10 @@ public class ReviewAppNavigationController {
 	@RequestMapping(value = "movielistB", method = RequestMethod.GET)
 	public String bollywoodMovieList(ModelMap model, HttpSession session) {
 		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
+		List<MovieResult> movieResults = movieService.findResultsByMovieLanguage("Hindi");
+		model.addAttribute("results", movieResults);
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
-		model.addAttribute("theMovieList", movieService.findByMovieLanguage("Hindi"));
 		return ReviewAppConstants.MOVIE_LIST_PAGE;
 	}
 
@@ -125,9 +126,10 @@ public class ReviewAppNavigationController {
 	@RequestMapping(value = "movielistH", method = RequestMethod.GET)
 	public String hollywoodMovieList(ModelMap model, HttpSession session) {
 		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
+		List<MovieResult> movieResults = movieService.findResultsByMovieLanguage("English");
+		model.addAttribute("results", movieResults);
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
-		model.addAttribute("theMovieList", movieService.findByMovieLanguage("English"));
 		return ReviewAppConstants.MOVIE_LIST_PAGE;
 	}
 

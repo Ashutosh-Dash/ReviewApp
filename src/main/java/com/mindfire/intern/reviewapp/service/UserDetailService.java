@@ -45,6 +45,16 @@ public class UserDetailService {
 	
 	/**
 	 * This method calls the corresponding component class method to
+	 * retrieve user details from its user id
+	 * @param userId A long value
+	 * @return Returns a UserDetail object
+	 */
+	public UserDetail findByUserId(long userId) {
+		return userDetailComponent.getUserDetailById(userId);
+	}
+	
+	/**
+	 * This method calls the corresponding component class method to
 	 * retrieve user id, name and role from user name
 	 * @param userName A String
 	 * @return Returns a LoggedInUserInfo object

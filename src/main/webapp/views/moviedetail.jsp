@@ -119,7 +119,7 @@
 					<dt>
 						<strong>Production budget:</strong>
 					</dt>
-					<dd>${movieProduction.productionBudget} USD</dd>
+					<dd>${movieProduction.productionBudget} million USD</dd>
 				</dl>
 
 				<c:if test="${not empty userInfo}">
@@ -181,15 +181,18 @@
 					</div>
 					<!-- /row -->
 					<div class="row">
+						
+						<c:forEach var="userReview" items="${reviews}">
 						<div class="col-sm-1"></div>
 
 						<div class="col-sm-10">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<strong>myusername</strong> <span class="text-muted">commented
-										5 days ago</span>
+									<strong>${userReview.userName}</strong>
+									<span class="text-muted">commented on
+										${userReview.addedOn}</span>
 								</div>
-								<div class="panel-body">Panel content</div>
+								<div class="panel-body">${userReview.review}</div>
 								<!-- /panel-body -->
 							</div>
 							<!-- /panel panel-default -->
@@ -197,6 +200,7 @@
 						<!-- /col-sm-5 -->
 
 						<div class="col-sm-1"></div>
+						</c:forEach>
 
 					</div>
 					<!-- /row -->
@@ -209,9 +213,7 @@
 		</div>
 	</div>
 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer>
+	<jsp:directive.include file="footertext.jsp" />
 
 </body>
 </html>

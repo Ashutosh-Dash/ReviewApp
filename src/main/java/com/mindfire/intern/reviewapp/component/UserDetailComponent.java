@@ -35,6 +35,17 @@ public class UserDetailComponent {
 	}
 	
 	/**
+	 * This method uses repository method to retrieve a details of a user
+	 * corresponding to the user id
+	 * @param userId A long value
+	 * @return Returns a UserDetail object
+	 */
+	@Transactional
+	public UserDetail getUserDetailById(long userId) {
+		return userDetailRepository.findByUserId(userId);
+	}
+	
+	/**
 	 * This method uses repository method to store the details of an user
 	 * @param userDetail a UserDetail object
 	 * @return Returns a UserDetail object

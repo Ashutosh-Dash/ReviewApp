@@ -35,6 +35,8 @@
 			<div class="col-sm-1"></div>
 		</div>
 	</div>
+	
+	<jsp:directive.include file="footertext.jsp" />
 
 </body>
 </html>

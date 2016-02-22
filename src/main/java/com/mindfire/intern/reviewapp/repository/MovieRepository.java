@@ -23,7 +23,7 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
 	
 	List<Movie> findByMovieTitleContainingIgnoreCaseOrderByReleaseDateDesc(String movieTitle);
 	
-	List<Movie> findByMovieLanguageOrderByReleaseDate(String movieLanguage);
+	List<Movie> findByMovieLanguageContainingIgnoreCaseOrderByReleaseDateDesc(String movieLanguage);
 	
 	Movie findByMovieId(long movieId);
 	
