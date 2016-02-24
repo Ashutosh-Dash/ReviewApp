@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mindfire.intern.reviewapp.domain.Movie;
+import com.mindfire.intern.reviewapp.domain.UserDetail;
 import com.mindfire.intern.reviewapp.domain.UserReview;
 import com.mindfire.intern.reviewapp.repository.UserReviewRepopsitory;
 
@@ -35,6 +36,16 @@ public class UserReviewComponent {
 	@Transactional
 	public List<UserReview> getReviewByMovie(Movie movie) {
 		return userReviewRepopsitory.findByMovie(movie);
+	}
+	
+	/**
+	 * This method returns reviews for corresponding movie and logged in user
+	 * @param movie
+	 * @return Returns a list of UserReview objects
+	 */
+	@Transactional
+	public List<UserReview> getReviewByUserAndMovie(UserDetail userDetail, Movie movie) {
+		return userReviewRepopsitory.findByUserDetailAndMovie(userDetail, movie);
 	}
 	
 	/**

@@ -36,6 +36,17 @@ public class UserDetailComponent {
 	
 	/**
 	 * This method uses repository method to retrieve a details of a user
+	 * corresponding to the user e-mail id
+	 * @param userName A String
+	 * @return Returns a UserDetail object
+	 */
+	@Transactional
+	public UserDetail getUserByEmailId(String emailId) {
+		return userDetailRepository.findByEmailId(emailId);
+	}
+	
+	/**
+	 * This method uses repository method to retrieve a details of a user
 	 * corresponding to the user id
 	 * @param userId A long value
 	 * @return Returns a UserDetail object

@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mindfire.intern.reviewapp.domain.UserDetail;
 import com.mindfire.intern.reviewapp.dto.LoggedInUserInfo;
 import com.mindfire.intern.reviewapp.dto.LoginInfo;
 import com.mindfire.intern.reviewapp.dto.MovieDTO;
@@ -102,10 +104,22 @@ public class ReviewAppFormsController {
 	public String afterRegistration(@ModelAttribute("userDetailDto") UserDetailDTO userDetailDto, ModelMap model,
 			HttpSession session) {
 		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
-		userDetailService.createUserDetail(userDetailDto);
-		model.addAttribute("search", new Search());
-		model.addAttribute("logininfo", new LoginInfo());
-		return ReviewAppConstants.REGISTRATION_SUCCESS_PAGE;
+		List<UserDetail> existingUsers = new ArrayList<>();
+		existingUsers.add(userDetailService.findByUserName(userDetailDto.getUserName()));
+		existingUsers.add(userDetailService.findByEmailId(userDetailDto.getEmailId()));
+		if (existingUsers.isEmpty()) {
+			userDetailService.createUserDetail(userDetailDto);
+			model.addAttribute("search", new Search());
+			model.addAttribute("logininfo", new LoginInfo());
+			return ReviewAppConstants.REGISTRATION_SUCCESS_PAGE;
+		} else {
+			model.addAttribute("search", new Search());
+			model.addAttribute("logininfo", new LoginInfo());
+			model.addAttribute("message", ReviewAppConstants.REGISTRATION_FAIL_MESSAGE);
+			model.addAttribute("userDetailDto", new UserDetailDTO());
+			model.addAttribute("questionList", ReviewAppConstants.QUESTION_LIST);			
+			return ReviewAppConstants.REGISTRATION_PAGE;
+		}
 
 	}
 
@@ -170,7 +184,8 @@ public class ReviewAppFormsController {
 			HttpSession session) {
 		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
 		userReviewService.createUserReview(reviewDto);
-		model.addAttribute("reviewDto", new ReviewDTO());
+		List<MovieResult> movieResults = movieService.findResultByMovieTitle("");
+		model.addAttribute("results", movieResults);
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
 		return ReviewAppConstants.MOVIE_LIST_PAGE;

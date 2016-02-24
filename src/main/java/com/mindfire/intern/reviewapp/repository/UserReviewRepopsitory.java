@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.mindfire.intern.reviewapp.domain.Movie;
+import com.mindfire.intern.reviewapp.domain.UserDetail;
 import com.mindfire.intern.reviewapp.domain.UserReview;
 
 /**
@@ -23,5 +24,6 @@ import com.mindfire.intern.reviewapp.domain.UserReview;
 public interface UserReviewRepopsitory extends JpaRepository<UserReview, Integer> {
 	
 	List<UserReview> findByMovie(Movie movie);
+	List<UserReview> findByUserDetailAndMovie(UserDetail userDetail, Movie movie);
 
 }

@@ -19,6 +19,21 @@ public class UserNameAndReviews {
 	private String userName;
 	private String review;
 	private Date addedOn;
+	private short rating;
+
+	/**
+	 * @return the rating
+	 */
+	public short getRating() {
+		return rating;
+	}
+
+	/**
+	 * @param rating the rating to set
+	 */
+	public void setRating(short rating) {
+		this.rating = rating;
+	}
 
 	/**
 	 * @return the addedOn

@@ -121,7 +121,17 @@
 					</dt>
 					<dd>${movieProduction.productionBudget} million USD</dd>
 				</dl>
-
+				<br />
+				<c:if test="${empty userInfo}">
+					<div class="text-danger">
+						You have to be logged in to post a review.
+						<br />
+						If you already have a TMC account then click on the <strong>Login</strong> button.
+						<br />
+						If you don't have an account the register now by clicking
+						<a href="registration">here</a> or on the <strong>Join Us</strong> button.
+					</div>
+				</c:if>
 				<c:if test="${not empty userInfo}">
 
 					<form:form commandName="reviewDto"
@@ -181,17 +191,23 @@
 						<!-- /col-sm-12 -->
 					</div>
 					<!-- /row -->
-					<div class="row">
 						
 						<c:forEach var="userReview" items="${reviews}">
+						<div class="row">
 						<div class="col-sm-1"></div>
 
 						<div class="col-sm-10">
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<strong>${userReview.userName}</strong>
-									<span class="text-muted">commented on
-										${userReview.addedOn}</span>
+									<small>commented on
+										${userReview.addedOn}</small><br/>
+									<c:forEach var="rating" begin="1" end="${userReview.rating}">
+									<span class="glyphicon glyphicon-star"></span>
+									</c:forEach>
+									<c:forEach var="of" begin="${userReview.rating + 1}" end="5">
+									<span class="glyphicon glyphicon-star-empty"></span>
+									</c:forEach>
 								</div>
 								<div class="panel-body">${userReview.review}</div>
 								<!-- /panel-body -->
@@ -201,10 +217,9 @@
 						<!-- /col-sm-5 -->
 
 						<div class="col-sm-1"></div>
+						</div>
+						<!-- /row -->
 						</c:forEach>
-
-					</div>
-					<!-- /row -->
 
 				</div>
 				<!-- /container -->

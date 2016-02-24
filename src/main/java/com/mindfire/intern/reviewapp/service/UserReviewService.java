@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.mindfire.intern.reviewapp.component.UserReviewComponent;
 import com.mindfire.intern.reviewapp.domain.Movie;
+import com.mindfire.intern.reviewapp.domain.UserDetail;
 import com.mindfire.intern.reviewapp.domain.UserReview;
 import com.mindfire.intern.reviewapp.dto.ReviewDTO;
 import com.mindfire.intern.reviewapp.dto.UserNameAndReviews;
@@ -48,6 +49,18 @@ public class UserReviewService {
 	public List<UserReview> getReviews(long movieId) {
 		Movie movie = movieService.findByMovieId(movieId);
 		return userReviewComponent.getReviewByMovie(movie);
+	}
+	
+	/**
+	 * This method returns a list of UserReview objects corresponding to the movie id 
+	 * and currently logged in user
+	 * @param movieId
+	 * @return
+	 */
+	public List<UserReview> getByUserAndMovie(long userId, long movieId) {
+		UserDetail userDetail = userDetailService.findByUserId(userId);
+		Movie movie = movieService.findByMovieId(movieId);
+		return userReviewComponent.getReviewByUserAndMovie(userDetail, movie);
 	}
 	
 	/**
@@ -95,6 +108,7 @@ public class UserReviewService {
 				findByUserId(userReview.getUserDetail().getUserId()).getUserName());
 		userNameAndReviews.setReview(userReview.getReview());
 		userNameAndReviews.setAddedOn(userReview.getAddedOn());
+		userNameAndReviews.setRating(userReview.getRating());
 		return userNameAndReviews;
 	}
 

@@ -4,7 +4,7 @@
  */
 package com.mindfire.intern.reviewapp.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * The MovieDTO class can be used to contain the incoming data from

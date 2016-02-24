@@ -45,6 +45,16 @@ public class UserDetailService {
 	
 	/**
 	 * This method calls the corresponding component class method to
+	 * retrieve user details from its user e-mail Id
+	 * @param userName A String
+	 * @return Returns a UserDetail object
+	 */
+	public UserDetail findByEmailId(String emailId) {
+		return  userDetailComponent.getUserByEmailId(emailId);
+	}
+	
+	/**
+	 * This method calls the corresponding component class method to
 	 * retrieve user details from its user id
 	 * @param userId A long value
 	 * @return Returns a UserDetail object

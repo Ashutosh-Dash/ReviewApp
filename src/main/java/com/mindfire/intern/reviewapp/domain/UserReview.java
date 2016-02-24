@@ -5,7 +5,7 @@
 package com.mindfire.intern.reviewapp.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -53,7 +53,8 @@ public class UserReview implements Serializable {
 	@Column(name = "user_rating")
 	private short rating;
 
-	@Column(name = "added_on", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP ")
+	@Column(name = "added_on", insertable = false, 
+			columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP ")
 	private Date addedOn;
 
 	/**
