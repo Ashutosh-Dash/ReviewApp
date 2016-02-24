@@ -129,7 +129,7 @@
 						If you already have a TMC account then click on the <strong>Login</strong> button.
 						<br />
 						If you don't have an account the register now by clicking
-						<a href="registration">here</a> or on the <strong>Join Us</strong> button.
+						<a href="${pageContext.request.contextPath}/registration">here</a> or on the <strong>Join Us</strong> button.
 					</div>
 				</c:if>
 				<c:if test="${not empty userInfo}">

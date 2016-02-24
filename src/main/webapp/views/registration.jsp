@@ -25,7 +25,7 @@
                     <form:form commandName="userDetailDto" class="form-horizontal" 
                     onsubmit="return passwordFunction(this);">
                       <fieldset>
-                        ${message}
+                        <strong class="text-danger">${message}</strong>
                         <div class="control-group">
                           <label class="control-label" for="username">Username</label>
                           <div class="controls">

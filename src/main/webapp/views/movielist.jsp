@@ -18,7 +18,11 @@
         
         <div class="container">    
             <div class="row">
-
+            	<c:if test="${empty results}">
+            	<br /><br />
+            	<h1 class="bg-primary">There are no results for your Query</h1>
+            	<br /><br /><br /><br />
+            	</c:if>
                 <c:forEach var="movieResult" items="${results}">
                 	<div class="col-sm-4">
                 		<a href="${pageContext.request.contextPath}/moviedetail/${movieResult.movieId}">
