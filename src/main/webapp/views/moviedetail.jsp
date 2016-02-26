@@ -191,7 +191,11 @@
 						<!-- /col-sm-12 -->
 					</div>
 					<!-- /row -->
-						
+						<c:if test="${empty reviews}">
+							<h1 class="text-danger">
+								There is nothing to display here
+							</h1>
+						</c:if>
 						<c:forEach var="userReview" items="${reviews}">
 						<div class="row">
 						<div class="col-sm-1"></div>

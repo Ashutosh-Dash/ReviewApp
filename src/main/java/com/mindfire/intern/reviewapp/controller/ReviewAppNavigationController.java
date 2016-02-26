@@ -43,7 +43,7 @@ import com.mindfire.intern.reviewapp.service.UserReviewService;
  *
  */
 @Controller
-@RequestMapping({"/", "/moviedetail/"})
+@RequestMapping("/")
 public class ReviewAppNavigationController {
 
 	@Autowired

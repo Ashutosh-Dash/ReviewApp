@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mindfire.intern.reviewapp.domain.Movie;
+import com.mindfire.intern.reviewapp.domain.MovieProduction;
 import com.mindfire.intern.reviewapp.domain.UserDetail;
 import com.mindfire.intern.reviewapp.dto.LoggedInUserInfo;
 import com.mindfire.intern.reviewapp.dto.LoginInfo;
@@ -37,6 +39,7 @@ import com.mindfire.intern.reviewapp.dto.MovieResult;
 import com.mindfire.intern.reviewapp.dto.ReviewDTO;
 import com.mindfire.intern.reviewapp.dto.Search;
 import com.mindfire.intern.reviewapp.dto.UserDetailDTO;
+import com.mindfire.intern.reviewapp.dto.UserNameAndReviews;
 import com.mindfire.intern.reviewapp.service.MovieGalleryService;
 import com.mindfire.intern.reviewapp.service.MovieProductionService;
 import com.mindfire.intern.reviewapp.service.MovieService;
@@ -176,7 +179,7 @@ public class ReviewAppFormsController {
 	 * @param reviewDto
 	 * @param model
 	 * @param session
-	 * @return
+	 * @return Returns the movie detail page
 	 */
 	@RequestMapping(value = "submitReview", method = RequestMethod.POST)
 	public String reviewAdded(@ModelAttribute("reviewDto") ReviewDTO reviewDto,
@@ -184,11 +187,18 @@ public class ReviewAppFormsController {
 			HttpSession session) {
 		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
 		userReviewService.createUserReview(reviewDto);
-		List<MovieResult> movieResults = movieService.findResultByMovieTitle("");
-		model.addAttribute("results", movieResults);
+		Movie movie = movieService.findByMovieId(reviewDto.getMovieId());
+		MovieProduction movieProduction = movieProductionService.findByMovie(movie);
+		MovieGalleryAsPath movieGalleryAsPath = movieGalleryService.findRelativePathByMovie(movie);
+		List<UserNameAndReviews> reviews = userReviewService.getNameReview(reviewDto.getMovieId());
+		model.addAttribute("movie", movie);
+		model.addAttribute("movieProduction", movieProduction);
+		model.addAttribute("movieGalleryAsPath", movieGalleryAsPath);
+		model.addAttribute("reviews", reviews);
+		model.addAttribute("reviewDto", new ReviewDTO());
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
-		return ReviewAppConstants.MOVIE_LIST_PAGE;
+		return ReviewAppConstants.MOVIE_DETAIL_PAGE;
 	}
 
 	/**
@@ -200,7 +210,8 @@ public class ReviewAppFormsController {
 	 * @return
 	 */
 	@RequestMapping(value = "addnewmovie", method = RequestMethod.POST)
-	public String addedNewMovie(@ModelAttribute("movieDto") MovieDTO movieDto, ModelMap model, HttpSession session) {
+	public String addedNewMovie(@ModelAttribute("movieDto") MovieDTO movieDto,
+			ModelMap model, HttpSession session) {
 		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
 		movieService.createMovie(movieDto);
 		model.addAttribute("movieProductionDto", new MovieProductionDTO());
