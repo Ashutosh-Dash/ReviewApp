@@ -100,16 +100,19 @@ public class ReviewAppFormsController {
 	 *            Receives the model of request
 	 * @param session
 	 *            Receives the session from request
-	 * @return Returns the registrationsuccess page in case of susseccful
+	 * @return Returns the registration success page in case of successful
 	 *         registration to the application
 	 */
 	@RequestMapping(value = "registration", method = RequestMethod.POST)
 	public String afterRegistration(@ModelAttribute("userDetailDto") UserDetailDTO userDetailDto, ModelMap model,
 			HttpSession session) {
+		
 		session.setAttribute("userInfo", (LoggedInUserInfo) session.getAttribute("userInfo"));
+		
 		List<UserDetail> existingUsers = new ArrayList<>();
 		existingUsers.add(userDetailService.findByUserName(userDetailDto.getUserName()));
 		existingUsers.add(userDetailService.findByEmailId(userDetailDto.getEmailId()));
+		
 		if (existingUsers.isEmpty()) {
 			userDetailService.createUserDetail(userDetailDto);
 			model.addAttribute("search", new Search());
@@ -151,7 +154,7 @@ public class ReviewAppFormsController {
 	/**
 	 * This method handles the input from the login form In case of successful
 	 * login it creates a session with the required user information else it
-	 * redirects to invlid login page
+	 * redirects to invalid login page
 	 * 
 	 * @param loginInfo
 	 *            Maps the input data to an object of LoginInfo class
@@ -160,9 +163,11 @@ public class ReviewAppFormsController {
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("logininfo") LoginInfo loginInfo, ModelMap model) {
+		
 		boolean valid = userDetailService.matchUserData(loginInfo);
 		model.addAttribute("search", new Search());
 		model.addAttribute("logininfo", new LoginInfo());
+		
 		if (valid) {
 			HttpSession session = request.getSession();
 			LoggedInUserInfo userInfo = userDetailService.getUserNameIdRole(loginInfo.getUserName());
@@ -303,6 +308,7 @@ public class ReviewAppFormsController {
 		String realPathToImages = request.getServletContext().getRealPath(imagesDir);
 		String fileName;
 		String pathOfImageFile;
+		
 		System.out.println(realPathToImages);
 		if (!new File(realPathToImages).exists()) {
 			new File(realPathToImages).mkdir();

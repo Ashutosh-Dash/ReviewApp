@@ -24,7 +24,7 @@ import com.mindfire.intern.reviewapp.dto.MovieProductionDTO;
 @Service
 public class MovieProductionService {
 	
-	private final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final Logger LOGGER = LoggerFactory.getLogger(MovieProductionService.class);
 	
 	@Autowired
 	private MovieProductionComponent movieProductionComponent;
@@ -58,7 +58,7 @@ public class MovieProductionService {
 		
 		MovieProduction createdMovieProduction = 
 				movieProductionComponent.saveMovieProduction(movieProduction);
-		logger.info("Movie production detail added");
+		LOGGER.info("Movie production detail added");
 		return createdMovieProduction;
 	}
 

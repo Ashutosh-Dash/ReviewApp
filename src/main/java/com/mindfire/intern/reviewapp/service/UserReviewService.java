@@ -30,7 +30,7 @@ import com.mindfire.intern.reviewapp.dto.UserNameAndReviews;
 @Service
 public class UserReviewService {
 	
-	private final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserReviewService.class);
 	
 	@Autowired
 	private UserReviewComponent userReviewComponent;
@@ -92,7 +92,7 @@ public class UserReviewService {
 		userReview.setRating(reviewDto.getRating());
 		
 		UserReview createdReview = userReviewComponent.saveUserReview(userReview);
-		logger.info("user review added successfully");
+		LOGGER.info("user review added successfully");
 		return createdReview;
 	}
 	

@@ -31,7 +31,7 @@ import com.mindfire.intern.reviewapp.dto.MovieResult;
 @Service
 public class MovieService {
 	
-	private final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final Logger LOGGER = LoggerFactory.getLogger(MovieService.class);
 	
 	@Autowired
 	private MovieComponent movieComponent;
@@ -125,7 +125,7 @@ public class MovieService {
 		movie.setDescription(movieDto.getDescription());
 		
 		Movie createdmovie = movieComponent.saveMovie(movie);
-		logger.info("Movie with name " + movieDto.getMovieTitle()
+		LOGGER.info("Movie with name " + movieDto.getMovieTitle()
 				+ " successfully added");
 		
 		return createdmovie;

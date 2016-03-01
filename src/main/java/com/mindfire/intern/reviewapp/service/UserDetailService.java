@@ -26,9 +26,9 @@ import com.mindfire.intern.reviewapp.dto.UserDetailDTO;
 @Service
 public class UserDetailService {
 	
-	private final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserDetailService.class);
 	
-	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+	private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	
 	@Autowired
 	private UserDetailComponent userDetailComponent;
@@ -117,7 +117,7 @@ public class UserDetailService {
 		userDetail.setUserRole("user");
 		
 		UserDetail createdUserDetail = userDetailComponent.saveUserDetail(userDetail);
-		logger.info("User with username " + userDetailDto.getUserName()
+		LOGGER.info("User with username " + userDetailDto.getUserName()
 				+ " sucessfully created");
 		
 		return createdUserDetail;

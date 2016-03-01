@@ -23,7 +23,7 @@ import com.mindfire.intern.reviewapp.dto.MovieGalleryAsPath;
 @Service
 public class MovieGalleryService {
 	
-	private final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final Logger LOGGER = LoggerFactory.getLogger(MovieGalleryService.class);
 	
 	@Autowired
 	private MovieGalleryComponent movieGalleryComponent;
@@ -75,7 +75,7 @@ public class MovieGalleryService {
 		
 		MovieGallery createdMovieGallery = 
 				movieGalleryComponent.saveMovieGallery(movieGallery);
-		logger.info("Movie gallery added");
+		LOGGER.info("Movie gallery added");
 		return createdMovieGallery;
 	}
 
